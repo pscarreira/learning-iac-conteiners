@@ -7,4 +7,5 @@ module "homolog" {
   beanstalk_env_name        = "env-homolog"
   instance_type             = "t2.micro"
   max_size                  = 2
+  version_name              = "homolog-v1"
 }

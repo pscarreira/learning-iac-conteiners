@@ -21,3 +21,7 @@ variable "instance_type" {
 variable "max_size" {
   type = number
 }
+
+variable "version_name" {
+  type = string
+}

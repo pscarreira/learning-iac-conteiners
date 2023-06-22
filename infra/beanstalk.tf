@@ -30,9 +30,14 @@ resource "aws_elastic_beanstalk_environment" "beanstalk_env" {
 }
 
 resource "aws_elastic_beanstalk_application_version" "beanstalk_app_version" {
+  depends_on = [
+    aws_elastic_beanstalk_environment.beanstalk_env,
+    aws_elastic_beanstalk_application.beanstalk_app,
+    aws_s3_object.deploy
+  ]
   name        = "${var.beanstalk_app_name}-${var.beanstalk_env_name}"
   application = var.beanstalk_app_name
   description = var.beanstalk_app_description
   bucket      = aws_s3_bucket.beanstalk_deploy.id
-  key         = aws_s3_bucket_object.deploy.id
+  key         = aws_s3_object.deploy.id
 }

@@ -9,3 +9,15 @@ variable "beanstalk_app_name" {
 variable "beanstalk_app_description" {
   type = string
 }
+
+variable "beanstalk_env_name" {
+  type = string
+}
+
+variable "instance_type" {
+  type = string
+}
+
+variable "max_size" {
+  type = number
+}
